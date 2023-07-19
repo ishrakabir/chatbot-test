@@ -7,8 +7,9 @@ export default function Chat() {
   const [message, setMessage] = useState("");
   const [client, setClient] = useState<string[]>([]);
  
-  const handleSubmit = (event) => {
+  const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
+    console.log(typeof(event));
     setMessages((current) => [...current, message]);
     setClient((current) => [...current, "user : "]);
  
