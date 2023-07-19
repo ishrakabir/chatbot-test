@@ -1,6 +1,6 @@
 "use client";
 import { useState } from "react";
-import { query } from "./api/chat/route";
+import { query } from "./service/chat";
  
 export default function Chat() {
   const [messages, setMessages] = useState<string[]>([]); // Type annotation added for "messages"
