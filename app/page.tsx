@@ -31,15 +31,7 @@ export default function Chat() {
         const data = await response.json();
         console.log(data);
 
-        if (data === "") {
-          return;
-        }
-
-        // Update the state to store the AI's response
-        setMessages((current) => [...current, data]);
-        setClient((current) => [...current, "AI : "]);
-      } catch (error) {
-        // If an error occurs, display a fallback message
+      if (data === "") {
         setMessages((current) => [...current, "I am unavailable right now!"]);
         setClient((current) => [...current, "AI : "]);
       }
