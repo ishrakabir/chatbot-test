@@ -25,9 +25,12 @@ export default function Chat() {
     getMessage({ question: message }).then(async (response) => {
       const data = await response.json();
       console.log(data);
-      setMessages((current) => [...current, "I am unavailable right now!"]);
-      setClient((current) => [...current, "AI : "]);
-      if (data === "") return;
+
+      if (data === "") {
+        setMessages((current) => [...current, "I am unavailable right now!"]);
+        setClient((current) => [...current, "AI : "]);
+        return;
+      }
       setMessages((current) => [...current, data]);
       setClient((current) => [...current, "AI : "]);
     });
